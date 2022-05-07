@@ -21,7 +21,7 @@ public class PlayerStatus : MonoBehaviour
         sp = GetComponent<SpriteRenderer>();
     }
 
-    //hp‚ÌŒvZ—p
+    //hpã®è¨ˆç®—ç”¨
     public int HPgetset {
         get { return HitPoint; }
         set { HitPoint = value; }
@@ -34,14 +34,15 @@ public class PlayerStatus : MonoBehaviour
     //
     void OnCollisionEnter(Collision other)
     {
-        // "enemy"ƒ^ƒO‚ÌƒIƒuƒWƒFƒNƒg‚ÆÚG
+        // "enemy"ã‚¿ã‚°ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã¨æ¥è§¦æ™‚
         if (((other.gameObject.tag == "Enemy") || (other.gameObject.tag == "EnemyAttack") || (other.gameObject.tag == "Trap"))
             &&
             (!isDamaged))
         {
+            int dmg = other.gameObject.GetComponent<EnemyStatus>().AtkGet();
             KnockBackVec = this.transform.position - other.transform.position;
             KnockBackVec.y += knokcBackhigh;
-            Damage(2,KnockBackVec);
+            Damage(dmg,KnockBackVec);
         }
     }
 
@@ -59,12 +60,12 @@ public class PlayerStatus : MonoBehaviour
     {
         for (int i = 0; i < loopCount; i++) {
             yield return new WaitForSeconds(flashInterval);
-            //spriteRenderer‚ğƒIƒt
+            //spriteRendererã‚’ã‚ªãƒ•
             sp.enabled = false;
 
-            //flashInterval‘Ò‚Á‚Ä‚©‚ç
+            //flashIntervalå¾…ã£ã¦ã‹ã‚‰
             yield return new WaitForSeconds(flashInterval);
-            //spriteRenderer‚ğƒIƒ“
+            //spriteRendererã‚’ã‚ªãƒ³
             sp.enabled = true;
         }
         isDamaged = false;

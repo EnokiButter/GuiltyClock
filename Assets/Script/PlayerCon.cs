@@ -20,7 +20,6 @@ public class PlayerCon : MonoBehaviour
 
 	// Start is called before the first frame update
 	void Start(){
-
 		rb = GetComponent<Rigidbody>();
 		anim = GetComponent<Animator>();
 		PlSt = this.GetComponent<PlayerStatus>();
@@ -40,9 +39,6 @@ public class PlayerCon : MonoBehaviour
 	void PlayerMove(){
 		h = 0;
 		v = 0;
-
-
-
 		//スピード計算
 		if (Input.GetKey(KeyCode.LeftShift))
 		{
@@ -52,7 +48,6 @@ public class PlayerCon : MonoBehaviour
 		{
 			speed = speedDef;
 		}
-
 		//前後左右移動
 
 		if (Input.GetKey("w") || Input.GetKey("up"))
