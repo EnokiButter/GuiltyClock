@@ -11,7 +11,7 @@ public class PlayerCon : MonoBehaviour
 	private Animator anim = null;
 	private float h = 0;
 	private float v = 0;
-	private bool isDamaged;
+	private bool isDamaging;
 
 	[SerializeField] public float speed = 1.0f;
 	[SerializeField] public float speedDef = 1.0f;
@@ -27,8 +27,8 @@ public class PlayerCon : MonoBehaviour
 
 	// Update is called once per frame
 	void FixedUpdate(){
-		isDamaged = PlSt.getIsDamaged();
-        if (!isDamaged) { 
+		isDamaging = PlSt.getIsDamaging();
+        if (!isDamaging) { 
 			PlayerMove();
 		}
     }

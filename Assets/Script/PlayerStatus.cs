@@ -4,58 +4,110 @@ using UnityEngine;
 
 public class PlayerStatus : MonoBehaviour
 {
-    private bool isDamaged = false;
+    private bool isDamaging = false;
     private Vector3 KnockBackVec;
 
-    [SerializeField] private int HitPoint = 5;
-    [SerializeField] float knokcBackhigh = 2f;
+    private string HitPointToString;
+
+    [SerializeField] private int HitPointMax = 20;
+    [SerializeField] private int HitPoint;
+    [SerializeField] float knokcBackhigh = 1f;
     [SerializeField] float knokcBackLevel = 3f;
     [SerializeField] float flashInterval;
     [SerializeField] int loopCount;
+
+    //HPのやつ
+    GameObject HPText;
+    HPTextScript hpTextScript;
 
     SpriteRenderer sp;
 
     // Start is called before the first frame update
     void Start()
     {
+        //スプライト描画のためにレンダラー取得
         sp = GetComponent<SpriteRenderer>();
+
+        //----------------HPに関する初期設定--------------------
+        //HP初期化
+        InitHitPoint();
+        //HPテキストのスクリプト取得 #1 テキストUI発見
+        HPText = GameObject.Find ("UI/HP/HPText");
+        //HPテキストのスクリプト取得 #2 スクリプト取得
+        hpTextScript = HPText.GetComponent<HPTextScript>();
+        //HP描画
+        HPDraw();
     }
 
+
+    //ダメージ状態のゲッター
+    public bool getIsDamaging(){
+        return this.isDamaging;
+    }
+    //HPの描画用
+    public void HPDraw() {
+        //HPをHPTextさんに描画させる
+        hpTextScript.HPCount(HitPoint,HitPointMax);
+    }
     //hpの計算用
     public int HPgetset {
         get { return HitPoint; }
         set { HitPoint = value; }
     }
-
-    public bool getIsDamaged (){
-        return this.isDamaged;
+    //最大HPアップ用
+    public void SetMaxHP(int hpmax) {
+        HitPointMax += hpmax;
+    }
+    //HP初期化
+    public void InitHitPoint() {
+        //HitPointが１００％の状態にする
+        HitPoint = HitPointMax;
     }
 
-    //
+    //接触判定
     void OnCollisionEnter(Collision other)
     {
-        // "enemy"タグのオブジェクトと接触時
+        // 敵、罠、攻撃タグのオブジェクトと接触時　&&　ダメージフラッシュしていない　&&　死んでないとき
         if (((other.gameObject.tag == "Enemy") || (other.gameObject.tag == "EnemyAttack") || (other.gameObject.tag == "Trap"))
             &&
-            (!isDamaged))
+            (!isDamaging)
+            &&
+            (HitPoint != 0)
+            )
         {
+            //ノックバック実行
+            KnockBack(other);
+            //敵のダメージを取得
             int dmg = other.gameObject.GetComponent<EnemyStatus>().AtkGet();
-            KnockBackVec = this.transform.position - other.transform.position;
-            KnockBackVec.y += knokcBackhigh;
-            Damage(dmg,KnockBackVec);
+            //ダメージ実行
+            Damage(dmg);
+            HPDraw();
         }
     }
 
-    void Damage(int dmg, Vector3 KBV) {
+    //ノックバック
+    void KnockBack(Collision other) {
         var rigidbody = GetComponent<Rigidbody>();
+        //ノックバックのベクトルを取得(トレちゃんと敵の座標の差)
+        KnockBackVec = this.transform.position - other.transform.position;
+        KnockBackVec.y += knokcBackhigh;
+        //ノックバック実行
+        rigidbody.AddForce(KnockBackVec * knokcBackLevel, ForceMode.VelocityChange);
+    }
+
+    //ダメージ計算用
+    void Damage(int dmg) {
         int tmpPoint = HitPoint;
         tmpPoint = tmpPoint - dmg;
         HitPoint = tmpPoint;
-        isDamaged = true;
-        rigidbody.AddForce(KBV * knokcBackLevel, ForceMode.VelocityChange);
+        if (HitPoint <= 0) {
+            HitPoint = 0;
+        }
+        isDamaging = true;
         StartCoroutine(DamageFlash());
     }
 
+    //ダメージフラッシュ
     IEnumerator DamageFlash()
     {
         for (int i = 0; i < loopCount; i++) {
@@ -68,7 +120,7 @@ public class PlayerStatus : MonoBehaviour
             //spriteRendererをオン
             sp.enabled = true;
         }
-        isDamaged = false;
+        isDamaging = false;
     }
     // Update is called once per frame
     void Update()
