@@ -1,0 +1,116 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Winding
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings: []
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 8033f089d4a874f47ab74a2aaae156cb, type: 3}
+    totalSpriteSurfaceArea: 150994944
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: bc369910a938e434eb6789971bfc2476, type: 3}
+  - {fileID: 21300000, guid: a186de7021ffbd2418f622605402de44, type: 3}
+  - {fileID: 21300000, guid: 9c7bc3311fdc03f49aaf94976fc43eb8, type: 3}
+  - {fileID: 21300000, guid: 31a92641253d7d447b19556a96ae0817, type: 3}
+  - {fileID: 21300000, guid: a202de0202bf85e40a4bc3d1494182b1, type: 3}
+  - {fileID: 21300000, guid: 710c69a2d0490d54e9b0555f57ab6d3e, type: 3}
+  - {fileID: 21300000, guid: ef441ca21e9d6764e898e42dafb4398e, type: 3}
+  - {fileID: 21300000, guid: 137adbd217d513c42824cfed4098d125, type: 3}
+  - {fileID: 21300000, guid: 65a8d5b3eb373184698137e05a89d362, type: 3}
+  - {fileID: 21300000, guid: 1ee14ab3833d266479cb620a035f7453, type: 3}
+  - {fileID: 21300000, guid: 62a0af348285de14ca83fb1edc7bd6be, type: 3}
+  - {fileID: 21300000, guid: 38da5565c12e56048be38189fb7f6401, type: 3}
+  - {fileID: 21300000, guid: fb922aa5805c6614b8de85a1b4a03c0f, type: 3}
+  - {fileID: 21300000, guid: 1a402b562813507439869c70a03b4b75, type: 3}
+  - {fileID: 21300000, guid: a4933686b8378314483330a94bc92a65, type: 3}
+  - {fileID: 21300000, guid: cee9fc868e4fbe544bbcf00faf6d7752, type: 3}
+  - {fileID: 21300000, guid: d091df074b150d54c9fabfd0088a1ec7, type: 3}
+  - {fileID: 21300000, guid: ac1f1a876a2bdcf449d633d72bbf599e, type: 3}
+  - {fileID: 21300000, guid: eb1c44a7e830fb84c9a5f57ebc7daabb, type: 3}
+  - {fileID: 21300000, guid: 280149885e7ee6e4abfd4ab2e0ff0e46, type: 3}
+  - {fileID: 21300000, guid: 1da53ef9bc418aa4db609913de635f45, type: 3}
+  - {fileID: 21300000, guid: 5db5848a6d275f940a77f496c647b065, type: 3}
+  - {fileID: 21300000, guid: 6aa417ba7723efe4bb056ade98129064, type: 3}
+  - {fileID: 21300000, guid: 39d6a41bf5dc12946aded5111186e016, type: 3}
+  - {fileID: 21300000, guid: 7a30c71de1ecb4c4aaf08efbb88db341, type: 3}
+  - {fileID: 21300000, guid: be73894d8b6d2394b828366af41bda9d, type: 3}
+  - {fileID: 21300000, guid: 904663dd8b53c2a42af0188737785c45, type: 3}
+  - {fileID: 21300000, guid: 6bd468eda5b42d748826cd3da46752e9, type: 3}
+  - {fileID: 21300000, guid: f3ae24fd1e02c37408b85bba0385dee5, type: 3}
+  - {fileID: 21300000, guid: 5d5baffd75ccf9f4aac64031bc8e1fa8, type: 3}
+  - {fileID: 21300000, guid: 12209c1efb54f3340ab424f58df58237, type: 3}
+  - {fileID: 21300000, guid: b273233f181abec4d80de75cbfc213ed, type: 3}
+  - {fileID: 21300000, guid: 76b0ac9fa56630046a8a08f24de0263b, type: 3}
+  - {fileID: 21300000, guid: 3db5eccf213cc3b46855e1c5c49c88db, type: 3}
+  - {fileID: 21300000, guid: f8bd8fdf9b640ff419d3c85e8374680f, type: 3}
+  - {fileID: 21300000, guid: e866f7ffc3615b84c967914a8dcec8db, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - wind_32
+  - wind_17
+  - wind_36
+  - wind_4
+  - wind_30
+  - wind_1
+  - wind_14
+  - wind_29
+  - wind_11
+  - wind_3
+  - wind_20
+  - wind_33
+  - wind_19
+  - wind_15
+  - wind_2
+  - wind_16
+  - wind_9
+  - wind_7
+  - wind_18
+  - wind_21
+  - wind_34
+  - wind_23
+  - wind_26
+  - wind_31
+  - wind_35
+  - wind_22
+  - wind_27
+  - wind_24
+  - wind_5
+  - wind_6
+  - wind_10
+  - wind_13
+  - wind_28
+  - wind_25
+  - wind_12
+  - wind_8
+  m_RenderDataMap: {}
+  m_Tag: Winding
+  m_IsVariant: 0
